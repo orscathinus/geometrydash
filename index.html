@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071126">
+  <meta name="description" content="Neon Dash is an original one-button rhythm platformer built for the web.">
+  <title>Neon Dash</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Neon Dash home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>NEON DASH</span>
+      </a>
+      <div class="topbar-actions">
+        <button id="muteButton" class="icon-button" type="button" aria-label="Mute sound" aria-pressed="false">♫</button>
+        <button id="fullscreenButton" class="icon-button" type="button" aria-label="Enter fullscreen">⛶</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="game-wrap" aria-label="Neon Dash game">
+        <canvas id="gameCanvas" width="1280" height="720" aria-label="Game canvas"></canvas>
+
+        <div id="hud" class="hud hidden" aria-live="polite">
+          <div class="hud-stat"><span>ATTEMPT</span><strong id="attemptValue">1</strong></div>
+          <div class="progress-track" aria-label="Level progress">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <div class="hud-stat hud-stat-right"><span>PROGRESS</span><strong id="progressValue">0%</strong></div>
+        </div>
+
+        <section id="menuScreen" class="overlay menu-screen">
+          <div class="menu-card">
+            <p class="eyebrow">ORIGINAL WEB RHYTHM PLATFORMER</p>
+            <h1>NEON<br><span>DASH</span></h1>
+            <p class="menu-copy">Jump, survive, and keep the beat through a handcrafted neon obstacle course.</p>
+            <button id="playButton" class="primary-button" type="button">PLAY</button>
+            <div class="mode-row" role="group" aria-label="Game mode">
+              <button class="mode-button active" data-mode="normal" type="button">NORMAL</button>
+              <button class="mode-button" data-mode="practice" type="button">PRACTICE</button>
+            </div>
+            <p class="controls-copy"><strong>SPACE</strong>, <strong>CLICK</strong>, or <strong>TAP</strong> to jump</p>
+          </div>
+        </section>
+
+        <section id="pauseScreen" class="overlay hidden">
+          <div class="dialog-card">
+            <p class="eyebrow">PAUSED</p>
+            <h2>Take a breath.</h2>
+            <button id="resumeButton" class="primary-button" type="button">RESUME</button>
+            <button id="restartButton" class="secondary-button" type="button">RESTART</button>
+            <button id="menuButton" class="text-button" type="button">MAIN MENU</button>
+          </div>
+        </section>
+
+        <section id="resultScreen" class="overlay hidden">
+          <div class="dialog-card result-card">
+            <p id="resultEyebrow" class="eyebrow">LEVEL COMPLETE</p>
+            <h2 id="resultTitle">100%</h2>
+            <p id="resultCopy">You cleared the course.</p>
+            <div class="result-stats">
+              <div><span>BEST</span><strong id="bestValue">0%</strong></div>
+              <div><span>ATTEMPTS</span><strong id="resultAttempts">1</strong></div>
+            </div>
+            <button id="againButton" class="primary-button" type="button">PLAY AGAIN</button>
+            <button id="resultMenuButton" class="text-button" type="button">MAIN MENU</button>
+          </div>
+        </section>
+
+        <button id="pauseButton" class="pause-button hidden" type="button" aria-label="Pause game">Ⅱ</button>
+        <div id="touchHint" class="touch-hint">TAP TO JUMP</div>
+      </section>
+
+      <section class="about-panel">
+        <div>
+          <p class="eyebrow">HOW TO PLAY</p>
+          <h2>One button. No brakes.</h2>
+        </div>
+        <p>Your cube moves automatically. Time each jump to clear spikes, blocks, gaps, and moving hazards. Practice mode adds automatic checkpoints after safe landings.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with HTML Canvas, CSS, and JavaScript. Original code, art, audio, and level design.</p>
+    </footer>
+  </div>
+
+  <script src="game.js" defer></script>
+</body>
+</html>
